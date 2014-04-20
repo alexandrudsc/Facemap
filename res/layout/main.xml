@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:id="@+id/main_layout"
+        >
+    <com.alexandru.developer.facemap.GoogleMapsView
+            android:id="@+id/map"
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+            android:layout_weight="6">
+
+    </com.alexandru.developer.facemap.GoogleMapsView>
+
+    <Button
+            android:id="@+id/test_button"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:onClick="clear"
+            />
+
+    <LinearLayout
+            android:layout_below="@+id/map"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+    <Button
+            android:id="@+id/get_pointer"
+            android:text="Get pointer"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="getPointer"
+            />
+    <Button
+            android:id="@+id/select"
+            android:text="Select"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="clickSelector"/>
+        <Button
+            android:id="@+id/refresh"
+            android:text="Refresh"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="refresh"/>
+
+    </LinearLayout>
+</RelativeLayout>
+
