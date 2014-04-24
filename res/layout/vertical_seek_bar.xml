@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+    <!-- Main context -->
+
+
+    <com.alexandru.developer.facemap.timebars.VerticalBar
+            android:id="@+id/skbSample"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:layout_marginRight="32dip"
+             android:layout_marginTop="10dp"
+             android:layout_marginBottom="10dp"
+             android:max="5000"/>
+
+    <!-- For display value -->
+    <AbsoluteLayout android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+        <TextView
+                android:id="@+id/txvSeekBarValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                >
+        </TextView>
+    </AbsoluteLayout>
+</RelativeLayout>

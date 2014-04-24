@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <ImageButton
+            android:background="@android:drawable/btn_minus"
+            android:id = "@+id/btn_minus"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            />
+
+    <com.alexandru.developer.facemap.timebars.CustomSeekBar
+            android:id="@+id/seek_bar"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="8"/>
+
+    <ImageButton
+            android:background="@android:drawable/btn_plus"
+            android:id="@+id/btn_plus"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+</LinearLayout>

@@ -1,32 +1,27 @@
 package com.alexandru.developer.facemap;
 
 import android.app.Activity;
-import android.app.Fragment;
-import android.graphics.Color;
 import android.graphics.Point;
-import android.location.Address;
-import android.location.Geocoder;
-import android.location.Location;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.AbsoluteLayout;
-import android.widget.Button;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
+import android.widget.*;
+import com.alexandru.developer.facemap.map.Country;
+import com.alexandru.developer.facemap.map.DrawerDragClickListener;
+import com.alexandru.developer.facemap.map.GoogleMapsView;
+import com.alexandru.developer.facemap.map.MapClickListener;
+import com.alexandru.developer.facemap.timebars.TimeBar;
+import com.alexandru.developer.facemap.timebars.VerticalSeekBar;
+import com.alexandru.developer.facemap.timebars.VerticalTimeBar;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
-import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.*;
 
-import java.io.*;
-import java.text.NumberFormat;
-import java.util.ArrayList;
-import java.util.Vector;
+import java.sql.Time;
 
 public class MainActivity extends Activity {
 
     public final String TAG=this.getClass().getCanonicalName().toUpperCase();
+    public static Country Romania=new Country();
 
     private GoogleMap googleMap;
     private MapView mapView;
@@ -41,7 +36,8 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-
+        //Add data to Romania
+        Romania.cities.add(new City);
         //Create map
         mapView=((MapView)findViewById(R.id.map));
         mapView.onCreate(savedInstanceState);
@@ -51,6 +47,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
+
         mapView.onResume();
         initilizeMap();
 
@@ -76,8 +73,11 @@ public class MainActivity extends Activity {
                 double latitude = 46.385044 ;
                 double longitude = 26.486671;
 
+                VerticalTimeBar verticalSeekBar = (VerticalTimeBar)findViewById(R.id.time_picker_region);
+                TimeBar seekBar = (TimeBar)findViewById(R.id.time_picker_person);
+                verticalSeekBar.setProgress(100);
                 //Events at which the map will respond
-                drawerDragClickListener=new DrawerDragClickListener(this, this.googleMap);
+                drawerDragClickListener=new DrawerDragClickListener(this, this.googleMap, verticalSeekBar, seekBar, this);
                 googleMap.setOnMarkerDragListener(drawerDragClickListener);
 
                 googleMap.setOnMapClickListener(new MapClickListener(getApplicationContext()));
@@ -103,9 +103,13 @@ public class MainActivity extends Activity {
         view.setClickable(false);
         //Create pointer(marker)
         LatLng latLng=googleMap.getProjection().fromScreenLocation(new Point(300, 300));
+
         MarkerOptions marker = new MarkerOptions().position(latLng).title("Hello Maps ");
 
         marker.draggable(true);
+
+        marker.rotation(-180);
+
         googleMap.addMarker(marker);
 
     }
@@ -113,6 +117,7 @@ public class MainActivity extends Activity {
     public void refresh(View view){
 
         googleMap.clear();
+
         //getPointer button is clickable
         this.findViewById(R.id.get_pointer).setClickable(true);
 
@@ -121,9 +126,9 @@ public class MainActivity extends Activity {
         drawerDragClickListener.clearTrack();
     }
 
-    public void clear(View view){
-        view.setLayoutParams(new RelativeLayout.LayoutParams(0, 0));
-        view.setAlpha(0);
+    public void setProgress(View view){
+        ProgressBar progressBar=(ProgressBar)view;
+        progressBar.setProgress(progressBar.getProgress()+20);
     }
 
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Countries' codes and coords of center( longitude and latitude)  -->
     <string-array name="countries">
         <item>AF 67.709953 33.93911</item>
         <item>AL 20.168331 41.153332</item>

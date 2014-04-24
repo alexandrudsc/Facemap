@@ -5,50 +5,57 @@
               android:layout_height="fill_parent"
               android:id="@+id/main_layout"
         >
-    <com.alexandru.developer.facemap.GoogleMapsView
+    <com.alexandru.developer.facemap.map.GoogleMapsView
             android:id="@+id/map"
             android:layout_width="match_parent"
-            android:layout_height="450dp"
-            android:layout_weight="6">
-
-    </com.alexandru.developer.facemap.GoogleMapsView>
-
-    <Button
-            android:id="@+id/test_button"
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:onClick="clear"
+            android:layout_height="500dp"
             />
+
+    <com.alexandru.developer.facemap.timebars.VerticalTimeBar
+            android:id="@+id/time_picker_region"
+            android:layout_width="60dp"
+            android:layout_height="500dp"
+            android:visibility="gone"/>
+
+    <com.alexandru.developer.facemap.timebars.TimeBar
+            android:layout_toRightOf="@id/time_picker_region"
+            android:id="@+id/time_picker_person"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:visibility="gone"/>
+
+
 
     <LinearLayout
             android:layout_below="@+id/map"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:orientation="horizontal"
-            android:layout_weight="1">
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
 
-    <Button
-            android:id="@+id/get_pointer"
-            android:text="Get pointer"
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:onClick="getPointer"
-            />
-    <Button
-            android:id="@+id/select"
-            android:text="Select"
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:onClick="clickSelector"/>
         <Button
-            android:id="@+id/refresh"
-            android:text="Refresh"
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:onClick="refresh"/>
+                android:id="@+id/get_pointer"
+                android:text="Get pointer"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="getPointer"/>
+
+        <Button
+                android:id="@+id/select"
+                android:text="Select"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="clickSelector"/>
+
+        <Button
+                android:id="@+id/refresh"
+                android:text="Refresh"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="refresh"/>
 
     </LinearLayout>
 </RelativeLayout>

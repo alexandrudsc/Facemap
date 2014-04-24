@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+    <!-- Main context -->
+
+
+        <SeekBar android:id="@+id/skbSample"
+                 android:layout_width="fill_parent"
+                 android:layout_height="fill_parent"
+                 android:layout_marginRight="@dimen/seek_bar_margin_right"
+                 android:max="5000">
+        </SeekBar>
+    <!-- For display value -->
+    <AbsoluteLayout android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+        <TextView
+                android:id="@+id/txvSeekBarValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                >
+        </TextView>
+    </AbsoluteLayout>
+</RelativeLayout>
